@@ -17,7 +17,7 @@ wall = box(pos = vec(50, 0, 0), )
 
 dt = 0.01
 
-n_brick = 30
+n_brick = 20
 brick_width = 2
 brick_height = 2
 brick_depth = 1
