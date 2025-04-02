@@ -30,11 +30,11 @@ while (t < 100):
   rate(1 / dt)
 
   #explosion event
-  if (t > 1 and explosion == False):
+  if (t > 1.5 and explosion == False):
     print("explosion")
     explosion = True
     for elem in obj:
-      vp = vec(random() - 0.5, random() - 0.5, random() - 0.5)
+      vp = vec(random() * 3 - 0.5, random() * 3 - 0.5, random() * 3 - 0.5)
       elem.v += vp
 
   for elem in obj:
@@ -44,7 +44,7 @@ while (t < 100):
     #collision with ground
     if (elem.pos.y < ground.pos.y):
       elem.pos.y = ground.pos.y
-      elem.v.y *= -0.8
+      elem.v.y *= -0.3
   
   t += dt
 
