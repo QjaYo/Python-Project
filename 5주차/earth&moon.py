@@ -11,13 +11,14 @@ earth.v = vec(0, 0, 0)
 
 moon = sphere(pos = vec(384400000, 0 , 0), radius = sf*1737000, texture = textures.rock, make_trail = True)
 moon.mass = 7.347e22
-moon.v = vec(0, 0, 0)
+moon.v = vec(0, 1022, 0)
+earth.v = (-1) * moon.mass * moon.v / earth.mass
 
 t = 0
-dt = 1
+dt = 60
 
 while (True):
-  rate(10000)
+  rate(1000)
 
   if (earth.radius + moon.radius >= mag(earth.pos - moon.pos)):
     print("Boom!")
@@ -27,13 +28,14 @@ while (True):
   #3rdlaw, Gravity
   r = moon.pos - earth.pos
   moon.force = - G * earth.mass * moon.mass / mag(r)**2 * norm(r)
-  moon.acc = moon.force / moon.mass
+
 
   r = earth.pos - moon.pos
-  earth.force = - G * earth.mass * moon.mass / mag(r)**2 * norm(r)
-  earth.acc = earth.force / earth.mass
+  earth.force = - moon.force
 
   #euler-cromer method
+  moon.acc = moon.force / moon.mass
+  earth.acc = earth.force / earth.mass
   moon.v += moon.acc * dt
   moon.pos += moon.v * dt
 
