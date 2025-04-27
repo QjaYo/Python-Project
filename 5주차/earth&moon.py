@@ -12,7 +12,8 @@ earth.v = vec(0, 0, 0)
 moon = sphere(pos = vec(384400000, 0 , 0), radius = sf*1737000, texture = textures.rock, make_trail = True)
 moon.mass = 7.347e22
 moon.v = vec(0, 1022, 0)
-earth.v = (-1) * moon.mass * moon.v / earth.mass
+earth.v = (vec(0, 5000000, 0) + (-1) * moon.mass * moon.v) / earth.mass
+org = sphere(pos = vec(0,0,0), radius = sf*6378000, color = color.white)
 
 t = 0
 dt = 60

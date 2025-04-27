@@ -13,7 +13,7 @@ for i in range(100):
     #random 0~1
     #make trail 자취남기기
     #retain 꼬리길이
-
+    
 #INIT PARAMETER
 vi = vec(0, 15, 0) #초기속도
 a = vec(0, -9.8, 0) #가속도
